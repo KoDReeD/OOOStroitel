@@ -1,0 +1,180 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" MinWidth="800" MinHeight="450"
+        WindowState="Maximized"
+        x:Class="Praktika1.Windows.MainWindow"
+        Title="MainWindow">
+
+  <Window.Styles>
+    <Style Selector="ListBox TextBlock">
+      <Setter Property="FontSize" Value="15"></Setter>
+    </Style>
+  </Window.Styles>
+
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="30"></RowDefinition>
+      <RowDefinition Height="50"></RowDefinition>
+      <RowDefinition></RowDefinition>
+      <RowDefinition Height="50"></RowDefinition>
+    </Grid.RowDefinitions>
+
+    <Grid Name="GridRow1">
+
+      <TextBlock Name="TextBlockFIO"
+                 Margin="0,0,20,0"
+                 HorizontalAlignment="Right"
+                 FontSize="15"
+                 VerticalAlignment="Center"
+                 FontWeight="Bold">
+      </TextBlock>
+      
+      <StackPanel Orientation="Horizontal"
+                  Spacing="20">
+        <Button HorizontalAlignment="Left"
+                FontSize="14"
+                Width="100"
+                Content="Выход"
+                HorizontalContentAlignment="Center"
+                Click="ButtonExit_OnClick">
+        </Button>
+        
+        <Button HorizontalAlignment="Left"
+                FontSize="14"
+                Width="100"
+                Content="Добавить"
+                HorizontalContentAlignment="Center"
+                Click="ButtonAdd_OnClick">
+        </Button>
+      </StackPanel>
+      
+    </Grid>
+    <Grid Row="1" Name="GridRow2">
+      <DockPanel Margin="10,0,0,0"
+                 LastChildFill="True">
+        <TextBlock Name="TextBlockCount"
+                   VerticalAlignment="Center"
+                   DockPanel.Dock="Right"
+                   Margin="10,0"
+                   FontSize="16">
+        </TextBlock>
+        <TextBox Name="TextBoxSeach"
+                 DockPanel.Dock="Left"
+                 Width="300"
+                 CornerRadius="40"
+                 Height="30"
+                 Margin="5"
+                 BorderThickness="0"
+                 KeyUp="TextBoxSeach_OnKeyUp">
+        </TextBox>
+
+        <ComboBox Name="ComboBoxManufacturer"
+                  DockPanel.Dock="Left"
+                  Margin="20,0,0,0"
+                  VerticalAlignment="Center"
+                  CornerRadius="40"
+                  Width="200"
+                  BorderThickness="0">
+          <ComboBox.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Title}"></TextBlock>
+            </DataTemplate>
+          </ComboBox.ItemTemplate>
+        </ComboBox>
+
+        <ComboBox Name="ComboBoxSort"
+                  DockPanel.Dock="Left"
+                  Margin="30,0,0,0"
+                  VerticalAlignment="Center"
+                  BorderThickness="0"
+                  Width="170"
+                  CornerRadius="40"
+                  SelectedIndex="0">
+          <ComboBox.Items>
+            <ComboBoxItem Content="По возрастанию" Tag="Ascending" />
+            <ComboBoxItem Content="По убыванию" Tag="Descending" />
+          </ComboBox.Items>
+        </ComboBox>
+
+        
+      </DockPanel>
+    </Grid>
+
+    <Grid Grid.Row="2">
+      <ListBox Name="ProductListBox"
+               Background="transparent">
+        <ListBox.ItemTemplate>
+          <DataTemplate>
+            <DockPanel Height="150"
+                       LastChildFill="True"
+                        Background="{Binding BackColor}"
+                        VerticalAlignment="Center">
+              <StackPanel DockPanel.Dock="Right"
+                          Spacing="10"
+                          VerticalAlignment="Center">
+                <Button Content="Редактировать"
+                        Width="150"
+                        HorizontalContentAlignment="Center"
+                        Tag="{Binding Articlenumber}"
+                        Background="{Binding BtnColor}"
+                        IsVisible="{Binding isAdmin}"
+                        Margin="10,0,10,0"
+                        Click="ButtonDelete_OnClick">
+                </Button>
+                <Button Content="Удалить"
+                        Width="150"
+                        HorizontalContentAlignment="Center"
+                        Tag="{Binding Articlenumber}"
+                        Background="{Binding BtnColor}"
+                        IsVisible="{Binding isAdmin}"
+                        Margin="10,0,10,0"
+                        Click="ButtonEdit_OnClick">
+                </Button>
+              </StackPanel>
+              
+              <Image Width="150"
+                     DockPanel.Dock="Left"
+                     Source="{Binding PhotoPath}">
+              </Image>
+
+              <StackPanel Orientation="Vertical"
+                          DockPanel.Dock="Left"
+                          Width="400"
+                          Margin="20,0,0,0">
+                <TextBlock FontWeight="Bold"
+                           Text="{Binding Title}">
+                </TextBlock>
+                <TextBlock TextWrapping="Wrap"
+                           Text="{Binding Description}">
+                </TextBlock>
+                <TextBlock Text="{Binding Manufacturer, StringFormat={}Производитель: {0}}"></TextBlock>
+                <TextBlock Text="{Binding Price, StringFormat={}{0:F2}}"></TextBlock>
+              </StackPanel>
+              <TextBlock Text="{Binding isExists}"
+                         VerticalAlignment="Center"
+                         DockPanel.Dock="Left"
+                         Margin="20,0,0,0">
+              </TextBlock>
+            </DockPanel>
+
+
+          </DataTemplate>
+        </ListBox.ItemTemplate>
+      </ListBox>
+    </Grid>
+    
+    <Grid Name="GridRow4"
+          Row="3">
+      <StackPanel Orientation="Horizontal">
+        <Image Source="/Resources/logo.png"></Image>
+        <TextBlock Text="ООО «Стройматериалы»"
+                   Margin="30,0,0,0"
+                   FontSize="25"
+                   VerticalAlignment="Center"></TextBlock>
+      </StackPanel>
+     
+    </Grid>
+  </Grid>
+</Window>

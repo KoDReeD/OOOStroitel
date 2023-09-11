@@ -1,0 +1,68 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <OutputType>WinExe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <BuiltInComInteropSupport>true</BuiltInComInteropSupport>
+        <ApplicationManifest>app.manifest</ApplicationManifest>
+    </PropertyGroup>
+    <ItemGroup>
+        <None Remove=".gitignore" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <TrimmerRootDescriptor Include="Roots.xml" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Avalonia" Version="0.10.18" />
+        <PackageReference Include="Avalonia.Desktop" Version="0.10.18" />
+        <!--Condition below is needed to remove Avalonia.Diagnostics package from build output in Release configuration.-->
+        <PackageReference Condition="'$(Configuration)' == 'Debug'" Include="Avalonia.Diagnostics" Version="0.10.18" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.10" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.10">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.10">
+          <PrivateAssets>all</PrivateAssets>
+          <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+        <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="7.0.4" />
+        <PackageReference Include="XamlNameReferenceGenerator" Version="1.5.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="Resources\win.jpg" />
+      <AvaloniaResource Include="Resources\win.jpg" />
+      <AvaloniaResource Include="Resources\sort.png" />
+      <None Remove="Resources\sort.png" />
+      <AvaloniaResource Include="Resources\sort.png" />
+      <None Remove="Resources\sort_black.png" />
+      <AvaloniaResource Include="Resources\sort_black.png" />
+      <None Remove="Resources\ProductPhotos\2G3280.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\2G3280.jpg" />
+      <None Remove="Resources\ProductPhotos\3L7RCZ.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\3L7RCZ.jpg" />
+      <None Remove="Resources\ProductPhotos\3XBOTN.jpeg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\3XBOTN.jpeg" />
+      <None Remove="Resources\ProductPhotos\BPV4MM.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\BPV4MM.jpg" />
+      <None Remove="Resources\ProductPhotos\F895RB.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\F895RB.jpg" />
+      <None Remove="Resources\ProductPhotos\JVL42J.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\JVL42J.jpg" />
+      <None Remove="Resources\ProductPhotos\MIO8YV.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\MIO8YV.jpg" />
+      <None Remove="Resources\ProductPhotos\PMEZMH.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\PMEZMH.jpg" />
+      <None Remove="Resources\ProductPhotos\S72AM3.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\S72AM3.jpg" />
+      <None Remove="Resources\ProductPhotos\UER2QD.jpg" />
+      <AvaloniaResource Include="Resources\ProductPhotos\UER2QD.jpg" />
+      <None Remove="Resources\noPicture.png" />
+      <AvaloniaResource Include="Resources\noPicture.png" />
+      <None Remove="Resources\logo.png" />
+      <AvaloniaResource Include="Resources\logo.png" />
+    </ItemGroup>
+</Project>

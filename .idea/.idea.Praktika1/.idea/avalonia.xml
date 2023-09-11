@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AvaloniaProject">
+    <option name="projectPerEditor">
+      <map>
+        <entry key="Praktika1/App.axaml" value="Praktika1/Praktika1.csproj" />
+        <entry key="Praktika1/MainWindow.axaml" value="Praktika1/Praktika1.csproj" />
+        <entry key="Praktika1/Windows/AddEditWindow.axaml" value="Praktika1/Praktika1.csproj" />
+        <entry key="Praktika1/Windows/AuthorizeWindow.axaml" value="Praktika1/Praktika1.csproj" />
+        <entry key="Praktika1/Windows/MainWindow.axaml" value="Praktika1/Praktika1.csproj" />
+      </map>
+    </option>
+  </component>
+</project>

@@ -1,0 +1,209 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" MinWidth="900" MinHeight="500"
+        x:Class="Praktika1.Windows.AddEditWindow"
+        Title="AddEditWindow">
+  
+  <Window.Styles>
+    <Style Selector="TextBlock">
+      <Setter Property="FontSize" Value="16"></Setter>
+    </Style>
+    <Style Selector="TextBox">
+      <Setter Property="CornerRadius" Value="40"></Setter>
+    </Style>
+    <Style Selector="ComboBox">
+      <Setter Property="CornerRadius" Value="40"></Setter>
+    </Style>
+  </Window.Styles>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="50"></RowDefinition>
+      <RowDefinition></RowDefinition>
+    </Grid.RowDefinitions>
+    <Grid.ColumnDefinitions>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+      <ColumnDefinition Width="*"></ColumnDefinition>
+    </Grid.ColumnDefinitions>
+    
+    <StackPanel Orientation="Horizontal"
+                Grid.ColumnSpan="2"
+                Name="StackPanelName">
+      <Image Source="/Resources/logo.png"></Image>
+      <TextBlock Text="ООО «Стройматериалы»"
+                 Margin="30,0,0,0"
+                 FontSize="25"
+                 VerticalAlignment="Center"></TextBlock>
+    </StackPanel>
+    
+    <StackPanel Grid.Column="0"
+                Grid.Row="1"
+                Spacing="5"
+                Margin="10,10,0,0">
+      <StackPanel>
+        <TextBlock Text="Артикуль">
+          
+        </TextBlock>
+        <TextBox Text="{Binding Articlenumber}"
+                 IsEnabled="False">
+          
+        </TextBox>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Text="Название">
+          
+        </TextBlock>
+        <TextBox Text="{Binding Title}">
+          
+        </TextBox>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Text="Единица измерения">
+          
+        </TextBlock>
+        <TextBox Text="{Binding Unitname}">
+          
+        </TextBox>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Text="Цена">
+          
+        </TextBlock>
+        <TextBox Text="{Binding Price}">
+          
+        </TextBox>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Text="Максимальная скидка">
+          
+        </TextBlock>
+        <TextBox Text="{Binding Maxdiscount}">
+          
+        </TextBox>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Text="Производитель">
+          
+        </TextBlock>
+        <ComboBox Name="ComboBoxManufacturer"
+                  SelectedItem="Manufacturer"
+                  HorizontalAlignment="Stretch">
+          <ComboBox.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Title}"></TextBlock>
+            </DataTemplate>
+          </ComboBox.ItemTemplate>
+        </ComboBox>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Text="Поставщик">
+          
+        </TextBlock>
+        <ComboBox Name="ComboBoxProvider"
+                  HorizontalAlignment="Stretch"
+                  SelectedItem="Provider">
+          <ComboBox.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Title}"></TextBlock>
+            </DataTemplate>
+          </ComboBox.ItemTemplate>
+        </ComboBox>
+      </StackPanel>
+      
+    </StackPanel>
+    
+    <StackPanel Grid.Column="1"
+                Grid.Row="1"
+                Spacing="5"
+                Margin="10,10,10,0">
+      <StackPanel>
+        <TextBlock Text="Категория">
+          
+        </TextBlock>
+        <ComboBox Name="ComboBoxCategory"
+                  HorizontalAlignment="Stretch"
+                  SelectedItem="Category">
+          <ComboBox.ItemTemplate>
+            <DataTemplate>
+              <TextBlock Text="{Binding Title}"></TextBlock>
+            </DataTemplate>
+          </ComboBox.ItemTemplate>
+        </ComboBox>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Text="Текущая скидка">
+          
+        </TextBlock>
+        <TextBox Text="{Binding Currentdiscount}">
+          
+        </TextBox>
+      </StackPanel>
+
+      <StackPanel>
+        <TextBlock Text="Кол-во на складе">
+
+        </TextBlock>
+        <TextBox Text="{Binding Quantityinstock}">
+
+        </TextBox>
+      </StackPanel>
+      
+      <StackPanel>
+        <TextBlock Text="Описание"
+                   TextWrapping="Wrap">
+
+        </TextBlock>
+        <TextBox Text="{Binding Description}"
+                 Height="180">
+        </TextBox>
+      </StackPanel>
+      
+    </StackPanel>
+    
+    <StackPanel Grid.Column="2"
+                Grid.Row="1">
+      <Border BorderThickness="1"
+              BorderBrush="Black"
+              Height="150"
+              Width="250">
+        <Image Height="140"
+               Width="240"
+               Name="PhotoImage">
+        </Image>
+      </Border>
+      
+      <StackPanel HorizontalAlignment="Center"
+                  Orientation="Vertical"
+                  Margin="0,10,0,0"
+                  Spacing="10">
+        <Button Content="Добавить"
+                Width="150"
+                HorizontalContentAlignment="Center"
+                Click="ButtonAddPhoto_OnClick">
+        </Button>
+      </StackPanel>
+      
+    </StackPanel>
+    
+    
+    
+    <Button Content="Сохранить"
+            Grid.Row="1"
+            VerticalAlignment="Bottom"
+            Grid.ColumnSpan="3"
+            Margin="0,0,0,10"
+            HorizontalAlignment="Center"
+            Click="ButtonSave_OnClick">
+    </Button>
+    
+  </Grid>
+</Window>

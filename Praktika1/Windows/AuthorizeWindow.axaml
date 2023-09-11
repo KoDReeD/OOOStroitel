@@ -1,0 +1,90 @@
+﻿<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d" MinWidth="800" MinHeight="450"
+        x:Class="Praktika1.Windows.AuthorizeWindow"
+        Title="AuthorizeWindow">
+
+  <Window.Styles>
+    <Style Selector="TextBox">
+      <Setter Property="Height" Value="40"></Setter>
+      <Setter Property="BorderThickness" Value="0"></Setter>
+      <Setter Property="CornerRadius" Value="40"></Setter>
+      <Setter Property="VerticalContentAlignment" Value="Center"></Setter>
+      <Setter Property="FontSize" Value="18"></Setter>
+    </Style>
+    <Style Selector="TextBlock.h6">
+      <Setter Property="FontSize" Value="25"></Setter>
+      <Setter Property="FontWeight" Value="Medium"></Setter>
+    </Style>
+  </Window.Styles>
+
+  <Grid>
+    <Border Background="#76E383"
+            Height="400"
+            Width="500"
+            CornerRadius="70">
+
+      <StackPanel Margin="20"
+                  VerticalAlignment="Center"
+                  Spacing="20">
+        
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center"
+                    Height="30">
+          <Image Source="/Resources/logo.png"
+                 Height="30"
+                 Width="30"></Image>
+          <TextBlock Text="ООО «Стройматериалы»"
+                     Margin="20,0,0,0"
+                     FontSize="20"
+                     VerticalAlignment="Center"></TextBlock>
+        </StackPanel>
+        
+        <TextBlock Classes="h6"
+                   HorizontalAlignment="Center">
+          Вход
+        </TextBlock>
+
+        <TextBox Name="TextBoxLogin"
+                 Margin="10,0,10,0"
+                 Watermark="Login">
+        </TextBox>
+        <TextBox Name="TextBoxPassword"
+                 Margin="10,0,10,0"
+                 Watermark="Password">
+        </TextBox>
+        
+        <StackPanel Height="50">
+          
+        </StackPanel>
+        
+        <StackPanel Orientation="Horizontal"
+                    HorizontalAlignment="Center">
+          <Button CornerRadius="30"
+                  Content="ВХОД"
+                  Background="#498C51"
+                  FontSize="16"
+                  Width="150"
+                  HorizontalAlignment="Center"
+                  HorizontalContentAlignment="Center"
+                  Click="ButtonLogin_OnClick">
+          </Button>
+          <Button CornerRadius="30"
+                  Content="ГОСТЬ"
+                  Background="#498C51"
+                  FontSize="16"
+                  Width="150"
+                  HorizontalAlignment="Center"
+                  HorizontalContentAlignment="Center"
+                  Click="ButtonGuest_OnClick">
+          </Button>
+        </StackPanel>
+        
+      </StackPanel>
+    </Border>
+  </Grid>
+
+
+</Window>
